@@ -11,7 +11,6 @@ public class BlockingService {
     public BlockingService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
-
     public String fetchDataBlocking() {
         try {
             Thread.sleep(2000);
