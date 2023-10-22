@@ -16,7 +16,7 @@ public class FeignController {
     }
 
     @GetMapping("/feign")
-    public String getFeignData() throws Exception, InterruptedException {
+    public TodoResponse getFeignData() throws Exception, InterruptedException {
         long startTime = System.currentTimeMillis();
 
         List< CompletableFuture<TodoResponse>> futures = new ArrayList<>();
@@ -29,7 +29,7 @@ public class FeignController {
         CompletableFuture<Void> allOf = CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
         allOf.get();
         long endTime = System.currentTimeMillis();
-        return "Total execution time: " + (endTime - startTime) + " ms";
-       // return getFeignData();
+        //return "Total execution time: " + (endTime - startTime) + " ms";
+        return feignService.fetchData();
     }
 }
