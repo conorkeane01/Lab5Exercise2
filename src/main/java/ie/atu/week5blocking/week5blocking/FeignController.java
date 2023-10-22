@@ -30,5 +30,6 @@ public class FeignController {
         allOf.get();
         long endTime = System.currentTimeMillis();
         return "Total execution time: " + (endTime - startTime) + " ms";
+       // return getFeignData();
     }
 }
